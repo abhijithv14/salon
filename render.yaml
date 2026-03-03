@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: rose-bloom-salon
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: salon-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: salon-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: salon-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: salon-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: salon-db
+          property: password
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: APP_URL
+        sync: false
+    disk:
+      name: uploads
+      mountPath: /var/www/html/assets/images/uploads
+      sizeGB: 1
+
+databases:
+  - name: salon-db
+    databaseName: salon
+    user: salon_user
+    plan: free

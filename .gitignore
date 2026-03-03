@@ -1,0 +1,8 @@
+# Git ignore file for Nandhu's Beauty Salon
+.env
+vendor/
+assets/images/uploads/*
+!assets/images/uploads/.gitkeep
+*.log
+.DS_Store
+Thumbs.db

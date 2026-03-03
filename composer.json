@@ -1,0 +1,19 @@
+{
+    "name": "rose-bloom/salon",
+    "description": "Luxury Beauty Salon Website",
+    "require": {
+        "php": ">=8.2",
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Salon\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
